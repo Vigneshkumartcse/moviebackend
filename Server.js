@@ -1,6 +1,5 @@
-const express = require("express");
-const { default: mongoose } = require("mongoose");
-
+const express = require('express');
+const mongoose = require('mongoose');
 const app = express();
 app.use(express.json());
 const PORT = process.env.PORT || 3000;
@@ -12,10 +11,7 @@ const MovieSchema  = mongoose.Schema({
 
 const Movie = mongoose.model("Movie", MovieSchema);
 
-mongoose.connect(MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-}).then(() => {
+mongoose.connect(MONGO_URI).then(() => {
     console.log("MongoDB connected");
 }).catch((err) => {
     console.error("MongoDB connection error:", err);
